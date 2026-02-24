@@ -1,4 +1,25 @@
-# Visual Studio
-.vs/
+# Build folders
 bin/
 obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# Ignore ALL appsettings files
+appsettings.json
+appsettings.*.json
+
+# User secrets
+secrets.json
+
+# OS files
+.DS_Store
+Thumbs.db
