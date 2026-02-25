@@ -1,6 +1,6 @@
 ﻿namespace AssignmeentWebApi.Services.Interface
 {
-    public interface IGuidService
+    public interface ISingletonGuidService
     {
         Guid getId();
     }

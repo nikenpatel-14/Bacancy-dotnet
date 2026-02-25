@@ -2,7 +2,7 @@
 
 namespace AssignmeentWebApi.Services
 {
-    public class GuidService : IGuidService
+    public class GuidService : ITransientGuidService,ISingletonGuidService,IScoppedGuidService
     {
         private readonly Guid _Id;
         public GuidService()

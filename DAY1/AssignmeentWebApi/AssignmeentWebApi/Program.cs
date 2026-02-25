@@ -24,9 +24,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IProductServices, ProductServices>();
 
-builder.Services.AddTransient<IGuidService, GuidService>();
-builder.Services.AddScoped<IGuidService, GuidService>();
-builder.Services.AddSingleton<IGuidService, GuidService>();
+builder.Services.AddTransient<ITransientGuidService, GuidService>();
+builder.Services.AddScoped<IScoppedGuidService, GuidService>();
+builder.Services.AddSingleton<ISingletonGuidService, GuidService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -28,6 +28,8 @@ Thumbs.db
 
 ## Environment files
 appsettings.Development.json
+appsettings.json
+
 appsettings.Local.json
 
 ## Secrets
