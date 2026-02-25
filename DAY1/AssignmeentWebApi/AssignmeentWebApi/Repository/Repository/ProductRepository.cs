@@ -32,6 +32,19 @@ namespace AssignmeentWebApi.Repository.Repository
             return product;
         }
 
+        public Product updateProduct(Product product ,int id)
+        {
+            var currProduct = _dbContext.products.Find(id);
+
+            currProduct.Name = product.Name;
+            currProduct.Price = product.Price;
+            currProduct.Category = product.Category;
+            _dbContext.SaveChanges();
+            return currProduct;
+
+
+        }
+
         public bool deleteProduct(int id)
         {
            var product = _dbContext.products.FirstOrDefault(x=>x.Id == id);

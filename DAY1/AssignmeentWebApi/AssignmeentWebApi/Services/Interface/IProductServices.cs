@@ -1,4 +1,5 @@
 ﻿
+using AssignmeentWebApi.DTOs;
 using AssignmeentWebApi.Repository.Model;
 
 namespace AssignmeentWebApi.Services.Interfaces
@@ -6,11 +7,13 @@ namespace AssignmeentWebApi.Services.Interfaces
     public interface IProductServices
     {
 
-        List<Product> getAllProducts();
-        Product getProductById(int id);
-        List<Product> getProductsByCategory(string categoryName);
+        List<ProductDTO> getAllProducts();
+        ProductDTO getProductById(int id);
+        List<ProductDTO> getProductsByCategory(string categoryName);
 
-        Product addProduct(Product product);
+        ProductDTO addProduct(ProductDTO product);
+
+        ProductDTO updateProduct(ProductDTO product,int id);
 
         bool deleteProduct(int id);
 

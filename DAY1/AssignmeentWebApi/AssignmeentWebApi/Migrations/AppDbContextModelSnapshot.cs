@@ -21,7 +21,7 @@ namespace AssignmeentWebApi.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("AssignmeentWebApi.Model.Product", b =>
+            modelBuilder.Entity("AssignmeentWebApi.Repository.Model.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -36,6 +36,9 @@ namespace AssignmeentWebApi.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

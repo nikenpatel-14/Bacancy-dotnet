@@ -1,5 +1,7 @@
 ﻿using AssignmeentWebApi.Repository.Model;
 using AssignmeentWebApi.Services.Interfaces;
+using AutoMapper;
+using AssignmeentWebApi.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AssignmeentWebApi.Controllers
@@ -9,9 +11,12 @@ namespace AssignmeentWebApi.Controllers
     public class ProductController : ControllerBase
     {
         private readonly IProductServices _services;
-        public ProductController(IProductServices services)
+
+        private readonly IMapper _mapper;
+        public ProductController(IProductServices services,IMapper mapper)
         {
             _services = services;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -32,11 +37,17 @@ namespace AssignmeentWebApi.Controllers
             return Ok(_services.getProductsByCategory(category));
         }
         [HttpPost]
-        public IActionResult AddProduct(Product product)
+        public IActionResult AddProduct(ProductDTO product)
         {
             var added = _services.addProduct(product);
 
-            return CreatedAtAction(nameof(GetProductById), new { id = added.Id }, added);
+            return Created();
+        }
+        [HttpPut("{id:int}")]
+        public IActionResult UpdateProduct (ProductDTO product,int id)
+        {
+            var result = _services.updateProduct(product, id);
+            return Ok(result);
         }
 
         [HttpDelete("{id:int}")]

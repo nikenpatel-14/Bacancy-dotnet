@@ -11,6 +11,8 @@ namespace AssignmeentWebApi.Repository.Interfaces
 
         Product addProduct(Product product);
 
+        Product updateProduct(Product product , int id);
+
         bool deleteProduct(int id);
     }
 }
