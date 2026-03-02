@@ -11,5 +11,6 @@ namespace AssignmeentWebApi.Data
         {
         }
         public DbSet<Product> products { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

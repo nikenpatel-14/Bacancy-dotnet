@@ -12,6 +12,6 @@ namespace AssignmeentWebApi.DTOs
         public int Price { get; set; }
 
         [Required]
-        public string Category { get; set; }
+        public string Category { get; set; } 
     }
 }
