@@ -1,4 +1,5 @@
 using AssignmeentWebApi.Data;
+using AssignmeentWebApi.Middleware;
 using AssignmeentWebApi.Repository.Interfaces;
 using AssignmeentWebApi.Repository.Repository;
 using AssignmeentWebApi.Services;
@@ -87,6 +88,7 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+app.UseMiddleware<ExceptionMiddleware>();
 app.UseHttpsRedirection();
 
 app.UseAuthentication();

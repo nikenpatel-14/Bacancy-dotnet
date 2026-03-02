@@ -50,5 +50,12 @@ namespace AssignmeentWebApi.Controllers
         {
             return Ok("Admin Service Granted.");
         }
+
+        [HttpGet]
+        [Route("Middleware")]
+        public IActionResult CustomMiddleware()
+        {
+            throw new Exception("check exception");
+        }
     }
 }
