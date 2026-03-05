@@ -46,9 +46,19 @@ builder.Services.AddRateLimiter(options =>
             {
                 PermitLimit = 5,
                 Window = TimeSpan.FromMinutes(1),
-                QueueLimit = 2,
-                QueueProcessingOrder = QueueProcessingOrder.OldestFirst
+               
             }));
+    options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+
+    options.OnRejected = async (context, token) =>
+    {
+        context.HttpContext.Response.ContentType = "application/json";
+
+        await context.HttpContext.Response.WriteAsync(
+            "{\"message\": \"Rate limit exceeded. Try again after 1 minute.\"}", token
+            );
+
+    };
 });
 
 
